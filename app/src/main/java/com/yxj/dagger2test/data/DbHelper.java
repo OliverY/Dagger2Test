@@ -8,9 +8,9 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.yxj.dagger2test.User;
-import com.yxj.dagger2test.customer.ApplicationContext;
-import com.yxj.dagger2test.customer.DatabaseInfo;
+import com.yxj.dagger2test.data.model.User;
+import com.yxj.dagger2test.dagger2.ApplicationContext;
+import com.yxj.dagger2test.dagger2.DatabaseInfo;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

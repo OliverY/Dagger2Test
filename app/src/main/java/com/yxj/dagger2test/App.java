@@ -1,12 +1,13 @@
 package com.yxj.dagger2test;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
-import com.yxj.dagger2test.component.ApplicationComponent;
-import com.yxj.dagger2test.component.DaggerApplicationComponent;
+import com.yxj.dagger2test.dagger2.component.ApplicationComponent;
+import com.yxj.dagger2test.dagger2.component.DaggerApplicationComponent;
 import com.yxj.dagger2test.data.DataManager;
-import com.yxj.dagger2test.module.ApplicationModule;
+import com.yxj.dagger2test.dagger2.module.ApplicationModule;
 
 import javax.inject.Inject;
 
@@ -20,12 +21,17 @@ public class App extends Application {
 
     @Inject
     DataManager dataManager;
+    private ApplicationComponent applicationComponent;
+
+    public static App get(Context context){
+        return (App) context.getApplicationContext();
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        ApplicationComponent applicationComponent = DaggerApplicationComponent
+        applicationComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(new ApplicationModule(this))
                 .build();
@@ -33,5 +39,9 @@ public class App extends Application {
 
         Log.e("yxj","dataManager::"+dataManager.toString());
 
+    }
+
+    public ApplicationComponent getComponent(){
+        return applicationComponent;
     }
 }

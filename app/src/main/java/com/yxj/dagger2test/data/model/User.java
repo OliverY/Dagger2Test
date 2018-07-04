@@ -1,4 +1,4 @@
-package com.yxj.dagger2test;
+package com.yxj.dagger2test.data.model;
 
 /**
  * Author:  Yxj

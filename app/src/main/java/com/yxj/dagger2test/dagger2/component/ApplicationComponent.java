@@ -1,19 +1,18 @@
-package com.yxj.dagger2test.component;
+package com.yxj.dagger2test.dagger2.component;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import com.yxj.dagger2test.App;
-import com.yxj.dagger2test.customer.ApplicationContext;
+import com.yxj.dagger2test.dagger2.ApplicationContext;
+import com.yxj.dagger2test.dagger2.module.ApplicationModule;
+import com.yxj.dagger2test.data.DataManager;
 import com.yxj.dagger2test.data.DbHelper;
 import com.yxj.dagger2test.data.SharedPrefsHelper;
-import com.yxj.dagger2test.module.ApplicationModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
-import dagger.Provides;
 
 /**
  * Author:  Yxj
@@ -27,13 +26,15 @@ public interface ApplicationComponent {
 
     void inject(App app);
 
-    @ApplicationContext
-    Context provideContext();
+//    @ApplicationContext
+//    Context provideContext();
+//
+//    Application provideApplication();
+//
+//    DbHelper provideDbHelper();
+//
+//    SharedPrefsHelper provideSharedPrefsHelper();
 
-    Application provideApplication();
-
-    DbHelper provideDbHelper();
-
-    SharedPrefsHelper provideSharedPrefsHelper();
+    DataManager getDataManager();
 
 }
